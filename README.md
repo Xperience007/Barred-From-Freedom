@@ -7,4 +7,4 @@ This is a video game that was made for my senior project. I wanted to make a rou
 Created by Tyler Searle and Victoria Clapp
 
 
-![A little guy trying to fight his way out]("C:\Users\tntbi\Desktop\CMPS490-Tyler_Searle-Victoria_Clapp\barred1.png")
+![A little guy trying to fight his way out](https://xperience007.github.io/images/barred1.png)
