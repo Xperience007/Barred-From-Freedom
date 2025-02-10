@@ -5,3 +5,6 @@
 This is a video game that was made for my senior project. I wanted to make a rougelike game since that's one of my favorite genres and I was definitely inspired by the Risk of Rain series. Updates will come out for the game whenever I'm able to get to it. Hope you enjoy!
 
 Created by Tyler Searle and Victoria Clapp
+
+
+![A little guy trying to fight his way out]("C:\Users\tntbi\Desktop\CMPS490-Tyler_Searle-Victoria_Clapp\barred1.png")
