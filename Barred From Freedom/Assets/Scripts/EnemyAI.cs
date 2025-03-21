@@ -73,6 +73,7 @@ public class EnemyAI : MonoBehaviour
         {
             enemyDied = true;
             StartCoroutine(EnemyDeath());
+            return;
         }
         else
         {
@@ -182,6 +183,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     private IEnumerator EnemyDeath() {
+        enemyDied = true;
         hasRun = true;
         SpawnEnemies.enemyCounter += 1;
         ItemMenu items = FindObjectOfType<ItemMenu>();
@@ -192,6 +194,7 @@ public class EnemyAI : MonoBehaviour
         Physics.IgnoreLayerCollision(8, 9, true);
         agent.isStopped = true;
         animator.SetBool("hasDied", true);
+        CancelInvoke(nameof(attackReset));
 
         yield return new WaitForSeconds(3.0f);
         Destroy(gameObject);
