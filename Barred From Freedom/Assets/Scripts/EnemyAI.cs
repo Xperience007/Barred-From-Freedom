@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] public float enemy1Health = 100.0f;
     public static float playerDamage = 100.0f;
     public static bool hasTakenDamage = false;
-    public static bool enemyDied = false;
+    public bool enemyDied = false;
 
     //For audio
     public AudioSource myAudio;
@@ -68,28 +68,21 @@ public class EnemyAI : MonoBehaviour
     }
 
     void Update() {
+        if (enemyDied)
+        {
+            agent.isStopped = true;
+            agent.enabled = false;
+            return;  // Stops execution of Update() after death
+        }
         //Checks enemy health
         if (enemy1Health <= 0 && !hasRun)
         {
             enemyDied = true;
-            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
             StartCoroutine(EnemyDeath());
         }
         else
         {
             enemyDied = false;
-        }
-
-        if (enemyDied)
-        {
-            agent.isStopped = true;
-            agent.enabled = false;
-
-            // Debugging: Print out rotation every frame
-            Debug.Log("Current Rotation: " + transform.rotation.eulerAngles);
-
-            transform.rotation = Quaternion.identity;
-            return;
         }
 
         //Checks if player is in enemy sight or attack range
@@ -193,7 +186,6 @@ public class EnemyAI : MonoBehaviour
     }
 
     private IEnumerator EnemyDeath() {
-        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         enemyDied = true;
         hasRun = true;
         SpawnEnemies.enemyCounter += 1;
@@ -255,6 +247,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
         hasRun = false;
+        enemyDied = false;
     }
 
     void DisablePortals(string[] tags) {

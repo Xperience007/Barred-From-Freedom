@@ -25,6 +25,8 @@ public class playerController : MonoBehaviour
     public GameObject healTeleporter;
     public TMP_Text healText;
 
+    private int killCounter = 0;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -132,10 +134,10 @@ public class playerController : MonoBehaviour
     {
         while (true)
         {
-            if (EnemyAI.enemyDied)
+            if (SpawnEnemies.enemyCounter != killCounter)
             {
-                EnemyAI.enemyDied = false;
                 Projectile.damage += 1.0f;
+                killCounter = SpawnEnemies.enemyCounter;
             }
 
             yield return null;
