@@ -65,7 +65,7 @@ public class playerController : MonoBehaviour
         switch (item)
         {
             case "Cutthroat Dagger":
-                daggerHealthGain += 1.0f;
+                daggerHealthGain += 0.2f;
                 StartCoroutine(Dagger());
                 break;
 

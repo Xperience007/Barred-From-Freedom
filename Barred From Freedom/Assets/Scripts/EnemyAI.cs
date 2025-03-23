@@ -72,29 +72,39 @@ public class EnemyAI : MonoBehaviour
         if (enemy1Health <= 0 && !hasRun)
         {
             enemyDied = true;
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
             StartCoroutine(EnemyDeath());
-            return;
         }
         else
         {
             enemyDied = false;
         }
 
+        if (enemyDied)
+        {
+            agent.isStopped = true;
+            agent.enabled = false;
+
+            // Debugging: Print out rotation every frame
+            Debug.Log("Current Rotation: " + transform.rotation.eulerAngles);
+
+            transform.rotation = Quaternion.identity;
+            return;
+        }
+
         //Checks if player is in enemy sight or attack range
         inSight = Physics.CheckSphere(transform.position, sight, whereIsPlayer);
         inRange = Physics.CheckSphere(transform.position, attack, whereIsPlayer);
 
-        if (!inSight && !inRange)
+        if (!inSight && !inRange && !enemyDied)
         {
             Patrol();
         }
-
-        if (inSight && !inRange)
+        else if (inSight && !inRange && !enemyDied)
         {
             Chase();
         }
-
-        if (inSight && inRange)
+        else if (inSight && inRange && !enemyDied)
         {
             Attack();
         }
@@ -183,6 +193,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     private IEnumerator EnemyDeath() {
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         enemyDied = true;
         hasRun = true;
         SpawnEnemies.enemyCounter += 1;
