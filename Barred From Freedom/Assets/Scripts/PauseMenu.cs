@@ -9,13 +9,17 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            if(GameIsPaused) {
+        if (GameIsPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
                 Resume();
             }
-            else {
-                Pause();
-            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
         }
     }
     
@@ -25,6 +29,12 @@ public class PauseMenu : MonoBehaviour
         pause.SetActive(true);
         Time.timeScale = 0;
         GameIsPaused = true;
+
+        //Disable keys that need to be disabled
+        FindObjectOfType<SecondaryAbility_Swipe>().enabled = false;
+        FindObjectOfType<UtilityAbility_Grenade>().enabled = false;
+        FindObjectOfType<DashScript>().enabled = false;
+        FindObjectOfType<Teleport>().enabled = false;
     }
 
     public void Resume() {
@@ -33,12 +43,24 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //Enable keys that need to be enabled
+        FindObjectOfType<SecondaryAbility_Swipe>().enabled = true;
+        FindObjectOfType<UtilityAbility_Grenade>().enabled = true;
+        FindObjectOfType<DashScript>().enabled = true;
+        FindObjectOfType<Teleport>().enabled = true;
     }
 
     public void Restart() {
         GameIsPaused = false;
         Time.timeScale = 1;
         SceneManager.LoadScene("Start");
+
+        //Enable keys that need to be enabled
+        FindObjectOfType<SecondaryAbility_Swipe>().enabled = true;
+        FindObjectOfType<UtilityAbility_Grenade>().enabled = true;
+        FindObjectOfType<DashScript>().enabled = true;
+        FindObjectOfType<Teleport>().enabled = true;
     }
 
     public void Tutorial() {

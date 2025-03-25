@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     private Teleport teleportScript;
 
     //Variables used in script
-    public static NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Transform player;
     public LayerMask whereIsGround, whereIsPlayer;
     private Animator animator;
@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
     public bool inSight, inRange;
 
     //For health
-    [SerializeField] public float enemy1Health = 100.0f;
+    public float enemy1Health = 100.0f;
     public static float playerDamage = 100.0f;
     public static bool hasTakenDamage = false;
     public bool enemyDied = false;

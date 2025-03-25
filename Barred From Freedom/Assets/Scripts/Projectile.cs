@@ -35,14 +35,14 @@ public class Projectile : MonoBehaviour
             EnemyAI.hasTakenDamage = true;
             if(playerController.isSlowed)
             {
-                EnemyAI.agent.speed -= 0.5f;
+                enemy.agent.speed -= 0.5f;
                 if (slowTimer > 0)
                 {
                     slowTimer -= Time.deltaTime;
                 }
                 else
                 {
-                    EnemyAI.agent.speed += 0.5f;
+                    enemy.agent.speed += 0.5f;
                     slowTimer = 3.0f;
                 }
             }

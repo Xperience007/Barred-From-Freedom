@@ -119,6 +119,12 @@ public class OutlineSelection : MonoBehaviour
                     }
                 }
 
+                if (text != null && newText != text)
+                {
+                    text.gameObject.SetActive(false);
+                    text = null;  // Clear previous text reference
+                }
+
                 selection = newSelect;
                 text = newText;
             }
@@ -126,12 +132,12 @@ public class OutlineSelection : MonoBehaviour
             else {
                 if(selection != null) {
                     selection.enabled = false;
-
-                    if(text != null) {
-                        text.gameObject.SetActive(false);
-                    }
-
                     selection = null;
+                }
+
+                if (text != null)
+                {
+                    text.gameObject.SetActive(false);
                     text = null;
                 }
             }
