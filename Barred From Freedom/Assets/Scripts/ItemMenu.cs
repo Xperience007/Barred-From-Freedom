@@ -58,6 +58,13 @@ public class ItemMenu : MonoBehaviour
         inMenu = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        //Disable keys that need to be disabled
+        FindObjectOfType<SecondaryAbility_Swipe>().enabled = false;
+        FindObjectOfType<UtilityAbility_Grenade>().enabled = false;
+        FindObjectOfType<DashScript>().enabled = false;
+        FindObjectOfType<Teleport>().enabled = false;
+
         //Picking random items
         int randomIndex = Random.Range(0, images.Length);
         item1Image.texture = images[randomIndex];
@@ -114,5 +121,11 @@ public class ItemMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         inMenu = false;
+
+        //Enable keys that need to be enabled
+        FindObjectOfType<SecondaryAbility_Swipe>().enabled = true;
+        FindObjectOfType<UtilityAbility_Grenade>().enabled = true;
+        FindObjectOfType<DashScript>().enabled = true;
+        FindObjectOfType<Teleport>().enabled = true;
     }
 }

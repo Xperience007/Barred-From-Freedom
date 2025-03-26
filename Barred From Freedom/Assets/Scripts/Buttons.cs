@@ -21,6 +21,10 @@ public class Buttons : MonoBehaviour
     public void ToMainGame() {
         PlayerHealth.health = 100.0f;
         Timer.elapsedTime = 0;
+        Projectile.damage = 15.0f;
+        EnemyProjectile.damage = 5.0f;
+        ProjectileAddOn.damage = 20.0f;
+        PlayerProjectiles.attackTime = 1.0f;
         SceneManager.LoadScene("MainGame");
     }
 
