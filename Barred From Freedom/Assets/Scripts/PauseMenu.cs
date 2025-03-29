@@ -9,14 +9,6 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public void Update() {
-        if (GameIsPaused)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Resume();
-            }
-        }
-        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
@@ -34,7 +26,6 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<SecondaryAbility_Swipe>().enabled = false;
         FindObjectOfType<UtilityAbility_Grenade>().enabled = false;
         FindObjectOfType<DashScript>().enabled = false;
-        FindObjectOfType<Teleport>().enabled = false;
     }
 
     public void Resume() {
@@ -48,7 +39,6 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<SecondaryAbility_Swipe>().enabled = true;
         FindObjectOfType<UtilityAbility_Grenade>().enabled = true;
         FindObjectOfType<DashScript>().enabled = true;
-        FindObjectOfType<Teleport>().enabled = true;
     }
 
     public void Restart() {
@@ -60,7 +50,6 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<SecondaryAbility_Swipe>().enabled = true;
         FindObjectOfType<UtilityAbility_Grenade>().enabled = true;
         FindObjectOfType<DashScript>().enabled = true;
-        FindObjectOfType<Teleport>().enabled = true;
     }
 
     public void Tutorial() {

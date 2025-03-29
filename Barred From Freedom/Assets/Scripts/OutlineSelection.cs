@@ -31,6 +31,7 @@ public class OutlineSelection : MonoBehaviour
 
     private void Update() {
         Teleport tp = FindObjectOfType<Teleport>();
+        ItemMenu item = FindObjectOfType<ItemMenu>();
         if (tp != null && !tp.inHealRoom && gameObject.CompareTag("Selectable"))
         {
             // Disable outlines and text for healing items if not in the heal room
@@ -61,92 +62,105 @@ public class OutlineSelection : MonoBehaviour
             return;
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (!item.inMenu && !PauseMenu.GameIsPaused)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit hit;
+            RaycastHit hit;
 
-        //Checks for objects on the selectable layer
-        int layer = LayerMask.GetMask("Selectable");
+            //Checks for objects on the selectable layer
+            int layer = LayerMask.GetMask("Selectable");
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer)) {
-            if(hit.transform.CompareTag("Selectable") || hit.transform.CompareTag("SelectableHeal") || hit.transform.CompareTag("SelectablePower") || hit.transform.CompareTag("SelectableSpawn")) {
-                Outline newSelect = hit.transform.GetComponent<Outline>();
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
+            {
+                if (hit.transform.CompareTag("Selectable") || hit.transform.CompareTag("SelectableHeal") || hit.transform.CompareTag("SelectablePower") || hit.transform.CompareTag("SelectableSpawn"))
+                {
+                    Outline newSelect = hit.transform.GetComponent<Outline>();
 
-                TextMeshPro newText = null;
+                    TextMeshPro newText = null;
 
-                if(textMap.TryGetValue(hit.transform, out newText)) {
-                    if(newSelect != null && newSelect != selection) {
-                        if(selection != null) {
-                            selection.enabled = false;
+                    if (textMap.TryGetValue(hit.transform, out newText))
+                    {
+                        if (newSelect != null && newSelect != selection)
+                        {
+                            if (selection != null)
+                            {
+                                selection.enabled = false;
+                            }
+
+                            if (text != null)
+                            {
+                                text.gameObject.SetActive(false);
+                            }
+                        }
+                    }
+
+                    if (tp == null || (tp.inHealRoom || !hit.transform.CompareTag("Selectable")))
+                    {
+                        if (newSelect != null)
+                        {
+                            newSelect.enabled = true;
                         }
 
-                        if(text != null) {
-                            text.gameObject.SetActive(false);
+                        if (newText != null)
+                        {
+                            newText.gameObject.SetActive(true);
+
+                            //Makes text face the camera
+                            newText.transform.LookAt(Camera.main.transform);
+                            newText.transform.Rotate(0, 180, 0);
                         }
                     }
+                    if (tp == null || (tp.inHealRoom && (hit.transform.CompareTag("SelectableHeal") || hit.transform.CompareTag("SelectablePower") || hit.transform.CompareTag("SelectableSpawn"))))
+                    {
+                        if (newSelect != null)
+                        {
+                            newSelect.enabled = false;
+                        }
+
+                        if (newText != null)
+                        {
+                            newText.gameObject.SetActive(false);
+
+                            //Makes text face the camera
+                            newText.transform.LookAt(Camera.main.transform);
+                            newText.transform.Rotate(0, 180, 0);
+                        }
+                    }
+
+                    if (text != null && newText != text)
+                    {
+                        text.gameObject.SetActive(false);
+                        text = null;  // Clear previous text reference
+                    }
+
+                    selection = newSelect;
+                    text = newText;
                 }
 
-                if (tp == null || (tp.inHealRoom || !hit.transform.CompareTag("Selectable")))
+                else
                 {
-                    if (newSelect != null)
+                    if (selection != null)
                     {
-                        newSelect.enabled = true;
+                        selection.enabled = false;
+                        selection = null;
                     }
 
-                    if (newText != null)
+                    if (text != null)
                     {
-                        newText.gameObject.SetActive(true);
-
-                        //Makes text face the camera
-                        newText.transform.LookAt(Camera.main.transform);
-                        newText.transform.Rotate(0, 180, 0);
+                        text.gameObject.SetActive(false);
+                        text = null;
                     }
                 }
-                if (tp == null || (tp.inHealRoom && (hit.transform.CompareTag("SelectableHeal") || hit.transform.CompareTag("SelectablePower") || hit.transform.CompareTag("SelectableSpawn"))))
-                {
-                    if (newSelect != null)
-                    {
-                        newSelect.enabled = false;
-                    }
-
-                    if (newText != null)
-                    {
-                        newText.gameObject.SetActive(false);
-
-                        //Makes text face the camera
-                        newText.transform.LookAt(Camera.main.transform);
-                        newText.transform.Rotate(0, 180, 0);
-                    }
-                }
-
-                if (text != null && newText != text)
-                {
-                    text.gameObject.SetActive(false);
-                    text = null;  // Clear previous text reference
-                }
-
-                selection = newSelect;
-                text = newText;
             }
-
-            else {
-                if(selection != null) {
-                    selection.enabled = false;
-                    selection = null;
-                }
-
+            else
+            {
+                selection.enabled = false;
                 if (text != null)
                 {
                     text.gameObject.SetActive(false);
-                    text = null;
                 }
             }
-        }
-        else {
-                selection.enabled = false;
-                if(text != null) {
-                    text.gameObject.SetActive(false);
-                }
         }
     }
 }

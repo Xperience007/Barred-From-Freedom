@@ -31,7 +31,7 @@ public class Teleport : MonoBehaviour
 
         ItemMenu item = FindObjectOfType<ItemMenu>();
         
-        if (!item.inMenu)
+        if (!item.inMenu && !PauseMenu.GameIsPaused)
         {
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
             {

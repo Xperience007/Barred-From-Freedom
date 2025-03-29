@@ -63,7 +63,6 @@ public class ItemMenu : MonoBehaviour
         FindObjectOfType<SecondaryAbility_Swipe>().enabled = false;
         FindObjectOfType<UtilityAbility_Grenade>().enabled = false;
         FindObjectOfType<DashScript>().enabled = false;
-        FindObjectOfType<Teleport>().enabled = false;
 
         //Picking random items
         int randomIndex = Random.Range(0, images.Length);
@@ -126,6 +125,5 @@ public class ItemMenu : MonoBehaviour
         FindObjectOfType<SecondaryAbility_Swipe>().enabled = true;
         FindObjectOfType<UtilityAbility_Grenade>().enabled = true;
         FindObjectOfType<DashScript>().enabled = true;
-        FindObjectOfType<Teleport>().enabled = true;
     }
 }
