@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -32,9 +33,11 @@ public class EnemyAI : MonoBehaviour
 
     //For health
     public float enemy1Health = 100.0f;
+    public float maxHealth = 100.0f;
     public static float playerDamage = 100.0f;
     public static bool hasTakenDamage = false;
     public bool enemyDied = false;
+    [SerializeField] private EnemyHealthbar healthbar;
 
     //For audio
     public AudioSource myAudio;
@@ -60,6 +63,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.Find("Player").transform;
         animator = GetComponent<Animator>();
         animator.SetBool("hasDied", false);
+        healthbar.UpdateHealthbar(maxHealth, enemy1Health);
 
         if (myAudio == null)
         {
@@ -183,6 +187,7 @@ public class EnemyAI : MonoBehaviour
     public void Enemy1TakeDamage(float damage) {
         enemy1Health -= damage;
         enemy1Health = Mathf.Max(enemy1Health, 0); //Prevents health from dropping below zero
+        healthbar.UpdateHealthbar(maxHealth, enemy1Health);
     }
 
     private IEnumerator EnemyDeath() {
