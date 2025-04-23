@@ -346,9 +346,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3946345667520299985, guid: 5b1e1876db9f22349892756e1f253323, type: 3}
-      propertyPath: healthbar
+      propertyPath: healthbarCanvas
       value: 
-      objectReference: {fileID: 466816809}
+      objectReference: {fileID: 807114959}
     - target: {fileID: 840556831146417700, guid: 5b1e1876db9f22349892756e1f253323, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.887
@@ -484,7 +484,11 @@ PrefabInstance:
     - target: {fileID: 4016164559477654389, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
       propertyPath: healthbar
       value: 
-      objectReference: {fileID: 1300553956}
+      objectReference: {fileID: 1636907256}
+    - target: {fileID: 4016164559477654389, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
+      propertyPath: healthbarCanvas
+      value: 
+      objectReference: {fileID: 1636907255}
     - target: {fileID: 5114899157588205433, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
       propertyPath: m_Name
       value: Blue Enemy (Punch)
@@ -534,17 +538,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
---- !u!114 &466816809 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3101093701245823064, guid: 5b1e1876db9f22349892756e1f253323, type: 3}
-  m_PrefabInstance: {fileID: 363861891}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce6a5ca094a20d46ae507f08ae0d4a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &492117297
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,17 +945,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671860119}
   m_CullTransparentMesh: 1
---- !u!114 &704128539 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3842088129724489725, guid: 947f7b5288e38474aa181cd58bfa824c, type: 3}
-  m_PrefabInstance: {fileID: 1065137684}
+--- !u!223 &807114959 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3506477771739944511, guid: 5b1e1876db9f22349892756e1f253323, type: 3}
+  m_PrefabInstance: {fileID: 363861891}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce6a5ca094a20d46ae507f08ae0d4a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &848193740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,9 +1316,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -30246064330236673, guid: 947f7b5288e38474aa181cd58bfa824c, type: 3}
-      propertyPath: healthbar
+      propertyPath: healthbarCanvas
       value: 
-      objectReference: {fileID: 704128539}
+      objectReference: {fileID: 2131196544}
     - target: {fileID: 4600950370864208694, guid: 947f7b5288e38474aa181cd58bfa824c, type: 3}
       propertyPath: m_Name
       value: Green Enemy (Rifle)
@@ -1381,17 +1368,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 947f7b5288e38474aa181cd58bfa824c, type: 3}
---- !u!114 &1300553956 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 107832118603373104, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
-  m_PrefabInstance: {fileID: 438375044}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce6a5ca094a20d46ae507f08ae0d4a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1387889233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2046,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!223 &1636907255 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3048073450989182445, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
+  m_PrefabInstance: {fileID: 438375044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1636907256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8548274298511770347, guid: 8f787feff7ce19c4893d5470d35d1cc8, type: 3}
+  m_PrefabInstance: {fileID: 438375044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce6a5ca094a20d46ae507f08ae0d4a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811112584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,6 +2371,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937303516}
   m_CullTransparentMesh: 1
+--- !u!223 &2131196544 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2175939638900949563, guid: 947f7b5288e38474aa181cd58bfa824c, type: 3}
+  m_PrefabInstance: {fileID: 1065137684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1511253857574970096
 PrefabInstance:
   m_ObjectHideFlags: 0

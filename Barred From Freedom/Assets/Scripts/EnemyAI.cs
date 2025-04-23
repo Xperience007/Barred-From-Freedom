@@ -38,6 +38,7 @@ public class EnemyAI : MonoBehaviour
     public static bool hasTakenDamage = false;
     public bool enemyDied = false;
     [SerializeField] private EnemyHealthbar healthbar;
+    [SerializeField] private Canvas healthbarCanvas;
 
     //For audio
     public AudioSource myAudio;
@@ -201,6 +202,7 @@ public class EnemyAI : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         Physics.IgnoreLayerCollision(8, 9, true);
         agent.isStopped = true;
+        healthbarCanvas.enabled = false;
         animator.SetBool("hasDied", true);
         CancelInvoke(nameof(attackReset));
 

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class EnemyHealthbar : MonoBehaviour
 {
     [SerializeField] private Image healthbarSprite;
-
+    [SerializeField] private float reduceSpeed = 2;
+    private float target = 1;
     private Camera cam;
 
     void Start()
@@ -16,11 +17,12 @@ public class EnemyHealthbar : MonoBehaviour
 
     public void UpdateHealthbar(float maxHealth, float currentHealth)
     {
-        healthbarSprite.fillAmount= currentHealth / maxHealth;
+        target = currentHealth / maxHealth;
     }
 
     void Update()
     {
         transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
+        healthbarSprite.fillAmount = Mathf.MoveTowards(healthbarSprite.fillAmount, target, reduceSpeed * Time.deltaTime);
     }
 }

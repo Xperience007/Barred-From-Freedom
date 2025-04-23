@@ -357,6 +357,7 @@ MonoBehaviour:
   maxHealth: 100
   enemyDied: 0
   healthbar: {fileID: 3842088129724489725}
+  healthbarCanvas: {fileID: 2175939638900949563}
   myAudio: {fileID: 6424309448235747521}
   enemyAttackSound: {fileID: 8300000, guid: 881e3f52c86c94f26a60718d35627cd8, type: 3}
   portalTags:
@@ -620,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbarSprite: {fileID: 9086489520243668002}
+  reduceSpeed: 2
 --- !u!1 &7163442738675153940
 GameObject:
   m_ObjectHideFlags: 0
