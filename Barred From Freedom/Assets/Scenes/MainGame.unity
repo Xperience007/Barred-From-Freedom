@@ -10622,6 +10622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 591873859555025317, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2025210464411649941, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -10650,6 +10654,38 @@ PrefabInstance:
       propertyPath: healTeleporter
       value: 
       objectReference: {fileID: 956695197}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: Fire
+      value: 
+      objectReference: {fileID: 5238538877814813142, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: myAudio
+      value: 
+      objectReference: {fileID: 1780778453}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: HitPoint
+      value: 
+      objectReference: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: hitAudio
+      value: 
+      objectReference: {fileID: 1780778432}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc2ce1296b4a0948acb0e1840220159, type: 3}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: FirePoint
+      value: 
+      objectReference: {fileID: 1780778451}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 735db211d7f1e9e44b0c3213a997397e, type: 3}
+    - target: {fileID: 3767577387804414835, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+      propertyPath: aimColliderLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4194109716076511373, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9467375
@@ -10924,6 +10960,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1780778451 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 276921261737341860, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+  m_PrefabInstance: {fileID: 1780778431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1780778453 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1556884449332657246, guid: 3258610cae9ad184a8d8cc62567a6b7a, type: 3}
+  m_PrefabInstance: {fileID: 1780778431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1803940465
 GameObject:
   m_ObjectHideFlags: 0
